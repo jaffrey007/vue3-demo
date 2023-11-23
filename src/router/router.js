@@ -20,14 +20,6 @@ const routes=[
         name: HomePage,
         component: HomePage,
     },
-    // {
-    //     path:'/api',
-    //     name: api,
-    //     component: api,
-    //     meta: {
-    //         apiPath: `http://127.0.0.1:8080/api/api/private/v1/`
-    //     }
-    // },
 
 ]
 
@@ -37,11 +29,11 @@ const router = createRouter({
     routes
 })
 // 挂载路由导航守卫
-router.beforeEach((to,from,next) =>{
-    // to将要访问路径；from：从哪个路径跳转 next:是个一个函数，表示放行
-    if(to.path == './login') return next();
-    const tokenStr= window.sessionStorage.getItem('token')
-    if(!tokenStr) return next('./login')
-    next()
-})
+// router.beforeEach((to,from,next) =>{
+//     // to将要访问路径；from：从哪个路径跳转 next:是个一个函数，表示放行
+//     if(to.path == './login') return next();
+//     const tokenStr= window.sessionStorage.getItem('token')
+//     if(!tokenStr) return next('./login')
+//     next()
+// })
 export default router;
