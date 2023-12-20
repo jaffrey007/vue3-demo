@@ -1,0 +1,199 @@
+<html>
+
+<head>
+    <h1>this is test</h1>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*        function Persion(name,age,gender){
+               // this.name是指实例name属性，他的值等于形参name。实例化后等于传进来的实参
+               this.name=name
+               this.age=age
+               this.gender=gender
+               this.sayName= function(){
+                   console.log(`Hello,myname is ${this.name} and I am ${this.age} years old`)
+                           }
+   
+           }
+           // 实例化构造函数
+           var jaffrey=new Persion("龙庆仙",18,"女");
+           var longqingxian= new Persion("陈志艺",18,"男")
+           //调用对象的方法 
+           jaffrey.sayName();
+           longqingxian.sayName(); */
+    class Person {
+        // 调用contructor构造函数创建属性
+        constructor(name, age, gender) {
+            this.name = name
+            this.age = age
+            this.gender = gender
+        }
+        // sayName(){
+        //     console.log(`Hello,myname is ${this.name} and I am ${this.age} years old`)
+        // }
+    }
+    // const person1= new Person("bob","18","男")
+    // person1.sayName()
+
+    /*      class Employee extends Person{
+             constructor(name,age,gender,position){
+                 super(name,age,gender)
+                 this.position=position
+             }
+                 introduce(){
+                     console.log(`Hello,myname is ${this.name} and I am ${this.age} years old,and I am a ${this.position}`);
+                 }
+             }
+ 
+         
+         const jaffrey= new Employee("陈志艺",42,"男","运维")
+         jaffrey.introduce()
+  */
+
+    //  SON CLASSS EXAMPLE
+    /* 
+     class Shape{
+        area(){
+            throw new Error('this method should be implemented in son class')
+        }
+    
+     }
+    // son class
+     class Circle extends Shape{
+        constructor(radius){
+            // 父类无属性继承
+            super();
+            // 设置son class的属性
+            this.radius=radius;
+        }
+        area(){
+            return Math.PI*this.radius**2;
+        
+        }
+     }
+     class Square extends Shape{
+        constructor(sideLength){
+            super()
+            this.sideLength=sideLength;
+        }
+        area(){
+            return this.sideLength*2;
+        }
+     }
+     const circle= new Circle(5);
+     console.log('circle area:', circle.area());
+     const square= new Square(4);
+     console.log('square area:', square.area());
+    
+     */
+    /* 
+     4. **简单的购物车系统**：
+        - 创建一个Cart类，包含添加商品、删除商品以及计算总价的方法；
+        - 商品应该是另一个名为Product的类，至少包含名称和价格；
+        - 实现一个方法显示购物车里的所有产品以及最后的总价格。 */
+    class Product {
+        constructor(name, price) {
+            this.name=name
+            this.price=price
+        }
+    }
+    // cart class is a empty array initially. When a new instance of the Cart class is created, the constructor initializes the "products" array as an empty array [].
+    //  This ensures that the "products" array exists and is ready to be used by the addProduct, removeProduct, calculateTotal, and displayCart methods.
+    class Cart {
+        constructor() {
+            this.products = [];
+        }
+
+        addProduct(product) {
+            this.products.push(product);
+        }
+
+        removeProduct(product) {
+            // get the index of list item that need to remove
+            const index = this.products.indexOf(product);
+            // if the index is not null
+            if (index !== -1) {
+                //delete the index,only the very one,no more. 
+                this.products.splice(index, 1);
+            }
+        }
+
+        calculateTotal() {
+            let total = 0;
+            for (const product of this.products) {
+                total += product.price;
+            }
+            return total;
+        }
+
+        displayCart() {
+            for (const product of this.products) {
+                console.log(`"Product": ${product.name}, "Price": ${product.price}`);
+            }
+            console.log(`"Total Price": ${this.calculateTotal()}`);
+        }
+
+    }
+    var product1 = new Product('Shoes', 50);
+
+    // Create a cart instance
+    const cart = new Cart();
+
+    // Add products to the cart
+    cart.addProduct(product1);
+    cart.addProduct(new Product('Shirt', 20));
+    cart.addProduct(new Product('girls shoes',30))
+
+    // Display the cart contents and total price
+    // cart.displayCart();
+    console.log(cart.displayCart())
+
+    console.log(Object.getOwnPropertyNames(Array.prototype));
+
+    // 图书馆系统例子：
+
+    // **图书馆管理系统**：
+    // - 创建一个Book类，包含基本信息如标题、作者、ISBN等；
+    // - 创建Library类，它能够添加书籍、删除书籍以及搜索书籍；(空列表类)
+    // - 搜索方法应能按照不同的书籍属性进行书籍搜索。(用数组的列表filter方法来实现查找？)
+  /*   箭头函数的最简形式：
+    3. 如果只有一个参数，可以省略小括号，可以写成：
+
+    单一参数=>{函数体}
+
+    单一参数=>表达式
+
+    4.如果没有参数，应该写成一对圆括号。
+
+    ()=>{函数体}
+
+    ()=>表达式
+     */
+    class Book{
+        // js内置的构造函数
+        constructor() {title,author,ISBN}
+    }
+    class Lib{
+        // actually, method is also function.initiate a empty array needs 
+        // to constructor function. 
+        constructor(){
+        this.books=[]
+        }
+        addBook(){
+            this.books.push(book);           
+        };
+        removeBook(){
+            this.books=this.books.filter(book => book.isbn !== isbn)
+        };
+        searchBook(){
+
+        };
+       }
+       const list
+
+</script>
+
+</html>
