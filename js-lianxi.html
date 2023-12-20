@@ -174,7 +174,11 @@
      */
     class Book{
         // js内置的构造函数
-        constructor() {title,author,ISBN}
+        constructor(title,author,isbn) {
+        this.title=title
+        this.author=author
+        this.isbn=isbn
+        }
     }
     class Lib{
         // actually, method is also function.initiate a empty array needs 
@@ -191,8 +195,23 @@
         searchBook(){
 
         };
+
+        displayBook() {
+            // use for to loop the array,and print them out.
+            for (const book of this.books) {
+                console.log(`"book": ${book.title}, "Price": ${book.author}`);
+            }
+         
+        }
        }
-       const list
+       const lib = new Lib();
+       lib.addBook(new Book('book1','J.D.J','9780316769488'));
+       lib.addBook(new Book('book2','harper','0061120081'));
+       console.log(lib.displayBook())
+       console.log(lib.removeBook('9780316769488'))
+       console.log(lib.displayBook())
+
+
 
 </script>
 
