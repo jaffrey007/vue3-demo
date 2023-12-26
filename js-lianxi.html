@@ -186,10 +186,12 @@
         constructor(){
         this.books=[]
         }
-        addBook(){
+        // 定义了一个方法，方法有一个形参book
+        addBook(book){
             this.books.push(book);           
         };
-        removeBook(){
+        // 从books列表中移除传入的isbn。这个isbn是一个还是回调函数。
+        removeBook(isbn){
             this.books=this.books.filter(book => book.isbn !== isbn)
         };
         searchBook(){
@@ -207,10 +209,81 @@
        const lib = new Lib();
        lib.addBook(new Book('book1','J.D.J','9780316769488'));
        lib.addBook(new Book('book2','harper','0061120081'));
+       lib.addBook(new Book('book22','jaffrey','55555555'));
        console.log(lib.displayBook())
-       console.log(lib.removeBook('9780316769488'))
+       lib.removeBook('55555555')
+       lib.removeBook('9780316769488')
        console.log(lib.displayBook())
 
+   /*     **账户和银行交易**：
+    - 创建一个Account类，包含账户余额和账户名等信息；
+    - 实现方法如deposit（存款）、withdraw（取款）、和displayBalance（显示余额）；
+    - 创建Transaction类模拟账户间的金钱转账，要求更新涉及账户的余额。 */
+    class Account{
+        constructor(accountName,initialBalance){
+            this.accountName=accountName;
+            // 由实例带入的balance属性
+            this.balance=initialBalance;
+                    }
+        // acount是存入/取款的金额
+        deposit(amount){
+            if (amount>0){
+            this.balance += amount
+            console.log(`deposit of ${amount} successful. New balance: ${this.balance}`)
+        }else {
+            console.log('Amount must be a positive')
+        }
+    }
+        withdraw(amount){
+            //余额必须要比取款金额少，否则提示“余额不足”
+            if (amount<=this.balance){
+                this.balance -= amount
+                console.log('withdrawal of ${amount} successfully')
+
+            }else{
+                console.log('insuffienct funds for this withdrawal')
+            }
+        }
+        displayBalance(){
+            console.log(`The balance of account "${this.accountName}" is ${this.balance}`);
+
+        }
+        }    
+   
+
+    class Transaction{
+        // 汇出账号：fromAccount,收款账号：toAccount，汇款金额：amount
+        static tansfer(fromAccount,toAccount,amount){
+            if (fromAccount.balance>=amount){   
+                fromAccount.withdraw(amount)
+                toAccount.deposit(amount)
+                console.log(`Transfer of ${amount} from "${fromAccount.accountName}" to "{${toAccount.accountName}}" successful`)
+                
+            }else{
+                console.log('insufficient funds for this transfer'
+                )
+            }
+
+        }
+        }
+        let account1= new Account('john',1000);
+        let account2= new Account('jane',500);
+        // 存款操作
+        account1.deposit(500);
+        account2.displayBalance();
+        // 取款操作
+        account1.withdraw(2000);
+        account1.displayBalance();
+        //转账操作
+        Transaction.tansfer(account1,account2,300)
+        account1.displayBalance()
+        account2.displayBalance()
+
+
+       
+    
+
+    
 
 
 </script>
