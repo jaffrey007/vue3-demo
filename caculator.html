@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>简单计算器</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="calculator">
+    <input v-model="num1" type="number">
+    <select v-model="operator">
+      <option value="+">加</option>
+      <option value="-">减</option>
+      <option value="*">乘</option>
+      <option value="/">除</option>
+    </select>
+    <input v-model="num2" type="number">
+    <button @click="calculate">计算</button>
+    <p>结果: {{ result }}</p>
+  </div>
+
+  <script>
+    new Vue({
+      // el: element,将vue实例挂载那个html元素上
+      el: '#calculator',
+      data: {
+        num1: 0,
+        num2: 0,
+        operator: '+',
+        result: 0
+      },
+      methods: {
+        calculate: function() {
+          switch (this.operator) {
+            case '+':
+              this.result = Number(this.num1) + Number(this.num2);
+              break;
+            case '-':
+              this.result = this.num1 - this.num2;
+              break;
+            case '*':
+              this.result = this.num1 * this.num2;
+              break;
+            case '/':
+              this.result = this.num1 / this.num2;
+              break;
+            default:
+              this.result = 0;
+
+          }
+        }
+      }
+    });
+
+  </script>
+  <script>
+    console.log(calculator.num1);
+    console.log(calculator.num2);</script>
+</body>
+</html>

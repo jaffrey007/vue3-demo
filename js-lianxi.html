@@ -181,7 +181,7 @@
         }
     }
     class Lib{
-        // actually, method is also function.initiate a empty array needs 
+        // actually, method is also function. initiate a empty array needs 
         // to constructor function. 
         constructor(){
         this.books=[]
@@ -190,9 +190,13 @@
         addBook(book){
             this.books.push(book);           
         };
-        // 从books列表中移除传入的isbn。这个isbn是一个还是回调函数。
+        //  这是一个箭头函数，它用于定义筛选条件。对于每本书籍对象，我们检查其 isbn 属性是否与提供的 isbn 参数相等。如果不相等，表示这本书籍不是要移除的书籍，我们将其保留在新数组中。
+
+        // 最后，返回的结果即为过滤后的新书籍列表，这样就移除了指定的书籍。book.isbn !== isbn：条件表达式，用于比较 book 对象的 isbn 属性值与传入的 isbn 参数是否相等。
+        // book1 => book1.isbn !== isbn：这个回调函数假设存在一个书籍对象数组，每个书籍对象都有一个 isbn 属性
+       
         removeBook(isbn){
-            this.books=this.books.filter(book => book.isbn !== isbn)
+            this.books=this.books.filter(book1 => book1.isbn !== isbn)
         };
         searchBook(){
 
@@ -212,7 +216,7 @@
        lib.addBook(new Book('book22','jaffrey','55555555'));
        console.log(lib.displayBook())
        lib.removeBook('55555555')
-       lib.removeBook('9780316769488')
+      
        console.log(lib.displayBook())
 
    /*     **账户和银行交易**：
@@ -274,7 +278,7 @@
         // 取款操作
         account1.withdraw(2000);
         account1.displayBalance();
-        //转账操作
+        //转账操作,静态方法用CLASS.METHOD(PARA1,PARA2)来调用
         Transaction.tansfer(account1,account2,300)
         account1.displayBalance()
         account2.displayBalance()
