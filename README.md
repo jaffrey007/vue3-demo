@@ -74,3 +74,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
    - 开发一个购物车系统，包括商品列表、购物车和结账页面，要求使用Vue组件和Vuex进行状态管理。
 
 完成这些练习题后，你将对Vue.js的核心概念有更深刻的理解，并能够开始开发自己的Vue.js应用。记得在编码的过程中，多查看Vue的官方文档，这是学习Vue时的宝贵资源。
+
+test
