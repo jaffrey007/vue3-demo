@@ -24,7 +24,7 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-#vue练手题目：
+# vue练手题目：
 
 当然可以！学习Vue.js时，实践是非常重要的。以下是一些不同难度的练手题目，你可以根据自己的学习进度挑选合适的题目进行练习。
 

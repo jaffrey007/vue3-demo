@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>数据绑定</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    </head>
+<body>
+    
+
+<!-- VIEW -->
+  <div id="text_model">
+    <!-- "v-model" is a directive that creates a two-way binding on form input elements and components. input(VIEW)---vue-data(MODEL)---<p>(VIEW) -->
+    <button text="点我" @click="showAlert">click me </button>
+
+  </div>
+
+
+<script>
+    new Vue({
+        el: '#text_model',
+        data: {},
+        methods: {
+        showAlert: function() {
+        alert(new Date());
+    }
+  }
+
+    }) 
+
+</script>
+</body>
+</html>

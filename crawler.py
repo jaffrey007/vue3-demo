@@ -6,6 +6,7 @@ import requests
 import json
 import subprocess
 import logging
+import pdb
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 # 发起HTTP请求获取网页内容
@@ -31,31 +32,24 @@ prod_set = set(village_array)
 print(prod_set)
 base_set = ('village-other-service','village-farm-api', 'village-minor-service', 'village-app-web', 'village-govt-web','village-kernel-service','village-bigscreen', 
 'village-govt-service','village-sso-web', 'village-pay-service', 'village-open-web', 'village-auth-service', 'village-back-web' )
+
+# diff_set is list type.
 diff_set = prod_set.symmetric_difference(base_set)
-#print(diff_set)
+
+diff_string=', '.join(diff_set)
 ##quote the diff_set
-
-
 webhook_Url="https://oapi.dingtalk.com/robot/send?access_token=66c8be847bf48afedec37369d2d58af4e365e06c805c00fa109904668f096238"
-
-diff_list=list(diff_set)
-#print(diff_list)
-diff_set_js=json.dumps(diff_list)
-
-#print(diff_set_js)
-diff_string=str(diff_set_js)
-print(diff_string)
-diff_final=''.join(diff_string)
-
-##create the payload to be sent:
+# ##create the payload to be sent:
 payload = {
-    "msgtype": "text",
-    "content": "微服务列表有变化："  + diff_final
-}
+     "msgtype": "text",
+          "text": {
+     "content": "微服务列表有变化："  + diff_string
+ }
+ }
 print(payload)
 headers = {
-    "Content-Type": "application/json"
-}
+     "Content-Type": "application/json"
+ }
 response=requests.post(webhook_Url,json=payload,headers=headers)
 data = json.loads(response.content.decode())
 print(data)
