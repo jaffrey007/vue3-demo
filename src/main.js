@@ -7,11 +7,12 @@ import ElementPlus from 'element-plus';
 // import 'element-plus/theme-chalk/index.css';
 import 'element-plus/dist/index.css'
 // import locale from 'element-plus/lib/locale/lang/zh-cn'
-import axios from 'axios'
+// import axios from 'axios'
 
 
 const app = createApp(App);
 // 挂载axios到vue原型上
-app.config.globalProperties.$http = axios;
-axios.defaults.baseURL = 'http://127.0.0.1:5222';
-app.use(ElementPlus,router).mount("#app");
+// app.config.globalProperties.$http = axios;
+// axios.defaults.baseURL = 'http://127.0.0.1:5222';
+// 错误写法：app.use(ElementPlus,router).mount('#app'); use是注册插件用的，不能写多个。
+app.use(ElementPlus).use(router).mount("#app");

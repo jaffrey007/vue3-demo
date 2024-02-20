@@ -1,0 +1,12 @@
+<html>
+    <head>getLocation</head>
+    <body>
+        <p>test</p>
+    </body>
+</html>
+<script>
+    navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("维度：" + position.coords.latitude);
+        console.log("经度：" + position.coords.longitude);
+    })
+</script>
