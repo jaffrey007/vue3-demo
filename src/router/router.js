@@ -3,6 +3,7 @@ import { createRouter,createWebHistory } from "vue-router";
 // before you use the component in router array,you need to import it from .vue file
 import LoginPage from '../components/LoginPage.vue';
 import HomePage from '../components/HomePage.vue';
+import testVue from '../components/testVue.vue';
 // route rules must be defined before router instance creation
 
 const routes=[
@@ -20,6 +21,11 @@ const routes=[
         name: HomePage,
         component: HomePage,
     },
+    {
+        path: '/test',
+        name: testVue,
+        component: testVue,
+    }
 
 ]
 
