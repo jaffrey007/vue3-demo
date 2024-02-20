@@ -2,6 +2,8 @@
     <div>
       <p>Data property example: {{ message }}</p>
       <button @click="changeMessage">Change Message</button>
+      <!-- 将script中的计算属性渲染到页面上 -->
+      <p>Computed property example: {{ computedPropertyExample }}</p>
     </div>
   </template>
   
@@ -14,22 +16,26 @@
     },
     computed: {
       computedPropertyExample() {
+
         return this.message.toUpperCase();
       }
     },
     methods: {
       changeMessage() {
-        this.message = 'Hello, World!';
+        this.message = 'Hello, world!';
       }
     },
     watch: {
-      message(newVal, oldVal) {
+      // 检测器，检测"message"的变化
+      message(oldVal,newVal) {
         console.log('Message changed from ' + oldVal + ' to ' + newVal);
       }
     },
+    // 当组件被创建后
     created() {
       console.log('Component created');
     },
+    // 当组件被挂载后
     mounted() {
       console.log('Component mounted');
     }
