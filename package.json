@@ -12,7 +12,9 @@
     "axios": "^1.6.2",
     "core-js": "^3.8.3",
     "element-plus": "^2.3.14",
-    "vue": "^3.2.13"
+    "es6-promise": "^4.2.8",
+    "vue": "^3.2.13",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

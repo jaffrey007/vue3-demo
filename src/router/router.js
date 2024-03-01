@@ -4,6 +4,7 @@ import { createRouter,createWebHistory } from "vue-router";
 import LoginPage from '../components/LoginPage.vue';
 import HomePage from '../components/HomePage.vue';
 import testVue from '../components/testVue.vue';
+import vuexExercise from '../components/vuexExercise.vue';
 // route rules must be defined before router instance creation
 
 const routes=[
@@ -20,6 +21,11 @@ const routes=[
         path:'/home',
         name: HomePage,
         component: HomePage,
+    },
+    {
+        path:'/vuex',
+        name: vuexExercise,
+        component: vuexExercise,
     },
     {
         path: '/test',

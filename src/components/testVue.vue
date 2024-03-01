@@ -1,3 +1,4 @@
+<!-- 本例子旨在说明vue实例个组成部分的意义 -->
 <template>
     <div>
       <p>Data property example: {{ message }}</p>
@@ -8,7 +9,7 @@
   </template>
   
   <script>
-  export default {
+  export default  {
     data() {
       return {
         message: 'Hello, Vue!'
@@ -16,7 +17,7 @@
     },
     computed: {
       computedPropertyExample() {
-
+ 
         return this.message.toUpperCase();
       }
     },
